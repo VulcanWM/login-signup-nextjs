@@ -1,10 +1,13 @@
 import '../styles/global.css';
+import { CookiesProvider } from 'react-cookie';
 
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }) {
   return (
-    <Component {...pageProps} />
+    <CookiesProvider>
+      <Component {...pageProps} />
+    </CookiesProvider>
   );
 }

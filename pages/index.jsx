@@ -1,10 +1,27 @@
 import Layout from '../components/layout'
+import { setCookie, getCookie } from 'cookies-next';
 
-
-export default function HomePage() {
-  return (
-    <Layout pageTitle="Home">
-      <h1>Hi</h1>
-    </Layout>
-  );
+export default function HomePage( {username} ) {
+    return (
+        <Layout pageTitle="Home">
+        {username ?
+        <h2>Hi {username}</h2>: 
+        <>
+            <h2>Log in</h2>
+            <form action='/api/logged-in' method='POST'>
+            <input name="username" id="username" placeholder='username' required></input>
+            <button type="submit">Send</button>
+            </form>
+        </>
+        }
+        </Layout>
+    );
 }
+
+export const getServerSideProps = ({ req, res }) => {
+    var username = getCookie('username', { req, res });
+    if (username == undefined){
+        username = false;
+    }
+    return { props: {username} };
+  };
