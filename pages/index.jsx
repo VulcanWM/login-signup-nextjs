@@ -1,6 +1,7 @@
 import Layout from '../components/layout'
 import { setCookie, getCookie, deleteCookie } from 'cookies-next';
 import Router from "next/router";
+import Link from 'next/link'
 
 function logout(){
     deleteCookie("username");
@@ -17,10 +18,8 @@ export default function HomePage( {username} ) {
         </>: 
         <>
             <h2>Log in</h2>
-            <form action='/api/logged-in' method='POST'>
-            <input name="username" id="username" placeholder='username' required></input>
-            <button type="submit">Send</button>
-            </form>
+            <Link href="/login">Login</Link><br/>
+            <Link href="/signup">Signup</Link>
         </>
         }
         </Layout>
@@ -33,4 +32,4 @@ export const getServerSideProps = ({ req, res }) => {
         username = false;
     }
     return { props: {username} };
-  };
+};
