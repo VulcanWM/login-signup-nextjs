@@ -8,9 +8,8 @@ export default function HomePage( {username} ) {
         {username ?
         <>
             <h2>Hi {username}</h2>
-            <form action='/api/logout' method='POST'>
-                <button type="submit">Logout</button>
-            </form>
+            <Link href="/profile">Profile</Link><br/>
+            <Link href="/api/logout">Logout</Link>
         </>: 
         <>
             <h2>Log in</h2>
