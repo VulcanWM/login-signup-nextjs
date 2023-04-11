@@ -10,16 +10,16 @@ export default function HomePage( {username} ) {
         <Layout pageTitle="Home">
             <Link href="/">Home</Link><br/>
             {msg ?
-                <h3>{msg}</h3>
+                <h3 className="red">{msg}</h3>
             :
                 <></>
             }
             <h2>Sign up</h2>
             <form action='/api/signup' method='POST'>
-                <input minLength="3" name="username" id="username" placeholder='username' required></input>
-                <input minLength="5" name="password" id="password" type="password" placeholder='password' required></input>
-                <input minLength="5" name="passwordagain" id="passwordagain" type="password" placeholder='password again' required></input>
-                <button type="submit">Signup</button>
+                <input minLength="3" name="username" id="username" type="text" placeholder='username' required></input><br/>
+                <input minLength="5" name="password" id="password" type="password" placeholder='password' required></input><br/>
+                <input minLength="5" name="passwordagain" id="passwordagain" type="password" placeholder='password again' required></input><br/>
+                <input type="submit" value="Signup"/>
             </form>
         </Layout>
     );

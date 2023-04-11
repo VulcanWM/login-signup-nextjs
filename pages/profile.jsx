@@ -31,6 +31,6 @@ export async function getServerSideProps(context) {
     const userdoc = users[0]
     const created = userdoc['Created']
     return {
-      props: {username: username, created: created}, // will be passed to the page component as props
+      props: {username: username, created: created},
     }
 }
