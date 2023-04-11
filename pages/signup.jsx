@@ -25,7 +25,9 @@ export default function SignupPage( {username} ) {
     );
 }
 
-export const getServerSideProps = ({ req, res }) => {
+export async function getServerSideProps(context) {
+    const req = context.req
+    const res = context.res
     var username = getCookie('username', { req, res });
     if (username != undefined){
         return {
