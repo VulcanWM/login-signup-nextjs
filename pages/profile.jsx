@@ -3,9 +3,9 @@ import { getCookie } from 'cookies-next';
 import Link from 'next/link'
 import clientPromise from "../lib/mongodb";
 
-export default function HomePage( {username, created} ) {
+export default function ProfilePage( {username, created} ) {
     return (
-        <Layout pageTitle="Home">
+        <Layout pageTitle="Profile">
             <Link href="/">Home</Link><br/>
             <h2>{username}'s Profile</h2>
             <p>Account created at <strong>{created}</strong></p>

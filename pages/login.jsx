@@ -3,11 +3,11 @@ import { getCookie } from 'cookies-next';
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function HomePage( {username} ) {
+export default function LoginPage( {username} ) {
     const router = useRouter()
     const { msg } = router.query
     return (
-        <Layout pageTitle="Home">
+        <Layout pageTitle="Login">
             <Link href="/">Home</Link><br/>
             {msg ?
                 <h3 className="red">{msg}</h3>

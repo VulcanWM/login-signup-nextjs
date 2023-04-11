@@ -21,7 +21,7 @@ export default function Layout({ pageTitle, children }) {
         <meta property="og:site_name" content={siteTitle} />
         <meta name="robots" content="index, follow"/>
         <meta property="og:type" content="Website" />
-        <title>{title}</title>
+        <title>{pageTitle}</title>
       </Head>
       <main>{children}</main>
     </div>
