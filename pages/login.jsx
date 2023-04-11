@@ -1,30 +1,23 @@
 import Layout from '../components/layout'
-import { setCookie, getCookie, deleteCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import Link from 'next/link'
-import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router'
 
 export default function HomePage( {username} ) {
     const router = useRouter()
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-      } = useForm();
-    
-      const onSubmit = (data) => {
-        setCookie("username", data.username)
-        router.push("/")
-      };
+    const { msg } = router.query
     return (
         <Layout pageTitle="Home">
             <Link href="/">Home</Link><br/>
+            {msg ?
+                <h3>{msg}</h3>
+            :
+                <></>
+            }
             <h2>Log in</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" name="username" {...register("username", {
-    required: true
-  })} />
-                {errors.username && <p>The username is required</p>}
+            <form action='/api/login' method='POST'>
+                <input minLength="3" name="username" id="username" placeholder='username' required></input>
+                <input minLength="5" name="password" id="password" type="password" placeholder='password' required></input>
                 <button type="submit">Login</button>
             </form>
         </Layout>
