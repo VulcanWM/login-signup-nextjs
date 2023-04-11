@@ -1,12 +1,7 @@
 import Layout from '../components/layout'
-import { setCookie, getCookie, deleteCookie } from 'cookies-next';
-import Router from "next/router";
+import { getCookie } from 'cookies-next';
 import Link from 'next/link'
 
-function logout(){
-    deleteCookie("username");
-    Router.reload()
-}
 
 export default function HomePage( {username} ) {
     return (

@@ -11,6 +11,7 @@
   "dependencies": {
     "cookies": "^0.8.0",
     "cookies-next": "^2.1.1",
+    "mongodb": "^5.2.0",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-cookie": "^4.1.1",
