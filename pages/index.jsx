@@ -14,7 +14,10 @@ export default function HomePage( {username} ) {
         {username ?
         <>
             <h2>Hi {username}</h2>
-            <button onClick={logout}>Logout</button>
+            <form action='/api/logout' method='POST'>
+                <input name="username" id="username" placeholder='username' required></input>
+                <button type="submit">Send</button>
+            </form>
         </>: 
         <>
             <h2>Log in</h2>
