@@ -2,7 +2,6 @@ import Layout from '../components/layout'
 import { getCookie } from 'cookies-next';
 import Link from 'next/link'
 
-
 export default function HomePage( {username} ) {
     return (
         <Layout pageTitle="Home">
@@ -10,8 +9,7 @@ export default function HomePage( {username} ) {
         <>
             <h2>Hi {username}</h2>
             <form action='/api/logout' method='POST'>
-                <input name="username" id="username" placeholder='username' required></input>
-                <button type="submit">Send</button>
+                <button type="submit">Logout</button>
             </form>
         </>: 
         <>
